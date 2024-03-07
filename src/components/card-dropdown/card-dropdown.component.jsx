@@ -14,7 +14,7 @@ const CardDropdown = () => {
 
     return (
         <div className='cart-dropdown-container'>
-            <div className="cart-items">
+            <div className="cart-items" >
             {cartItems.map(item=><CartItem cartItem={item} />)}
             </div>
             <Button onClick={goToCheckout}>GO TO CHECKOUT</Button>

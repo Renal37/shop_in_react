@@ -19,6 +19,12 @@ a:hover {
   text-decoration: underline;
   color: black;
 }
+.nav-links-container{
+  margin-top:10px;
+}
+.button-container{
+  font-size: 14px;
+}
 *{
   box-sizing: border-box;
 }
