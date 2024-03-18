@@ -8,7 +8,6 @@ import CardDropdown from "../../components/card-dropdown/card-dropdown.component
 import { selectIsCartOpen } from "../../store/cart/cart.select.js";
 import { selectCurrentUser } from '../../store/user/user.select.js';
 import { NavigationContainer,LogoContainer,NavLink,NavLinks } from "./navigation.styles.jsx";
-
 import { ReactComponent as CrwnLogo } from '../../assect/crown.svg';
 import { signOutStart } from "../../store/user/user.action.js";
 
