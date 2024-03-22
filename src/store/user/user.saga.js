@@ -4,7 +4,7 @@ import { USER_ACTION_TYPES } from "./user.types";
 
 import { signInSuccess, signInFailed, signUpSuccess, signUpFailed, signOutSuccess, signOutFailed } from "./user.action";
 
-import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopup, signInAutiUserWithEmailAndPassword, createaAuthUserWithEmail, signOutUser } from "../../utils/firebase/firebase.utils";
+import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword, createAuthUserWithEmailAndPassword, signOutUser } from "../../utils/firebase/firebase.utils";
 
 export function* signWithGoogle() {
     try {
@@ -27,7 +27,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetaild) {
 
 export function* signInWhithEmail({ payload: { email, password } }) {
     try {
-        const { user } = yield call(signInAutiUserWithEmailAndPassword, email, password);
+        const { user } = yield call(signInAuthUserWithEmailAndPassword, email, password);
         yield call(getSnapshotFromUserAuth, user);
     } catch (error) {
         yield put(signInFailed(error));
@@ -46,7 +46,7 @@ export function* isUserAuthenticated() {
 
 export function* signUp({ payload: { email, password, displayName } }) {
     try {
-        const { user } = yield call(createaAuthUserWithEmail, email, password);
+        const { user } = yield call(createAuthUserWithEmailAndPassword, email, password);
         yield put(signUpSuccess(user, { displayName }))
     }
     catch (error) {
