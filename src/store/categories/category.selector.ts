@@ -3,9 +3,10 @@ import { createSelector } from 'reselect';
 import { CategoryState } from './catgory.reducer';
 
 import { Cagetory } from './category.types';
+import { state } from '../cart/cart.reducer';
 
 // const selectCategoryReducer = (state):CategoryState => state.categories;
-const selectCategoryReducer = (state): CategoryState => state.categories;
+const selectCategoryReducer = (state:state): CategoryState => state.categories;
 
 export const selectCategories = createSelector(
   [selectCategoryReducer],
