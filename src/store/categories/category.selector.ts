@@ -1,12 +1,11 @@
 import { createSelector } from 'reselect';
 
-import { CategoryState } from './catgory.reducer';
-
+import { CategoriesState } from './catgory.reducer';
 import { Cagetory } from './category.types';
-import { state } from '../cart/cart.reducer';
+import { RootState } from '../store';
 
-// const selectCategoryReducer = (state):CategoryState => state.categories;
-const selectCategoryReducer = (state:state): CategoryState => state.categories;
+const selectCategoryReducer = (state: RootState): CategoriesState =>
+  state.categories;
 
 export const selectCategories = createSelector(
   [selectCategoryReducer],
@@ -15,7 +14,7 @@ export const selectCategories = createSelector(
 
 export const selectCategoriesMap = createSelector(
   [selectCategories],
-  (categories) :Cagetory=>
+  (categories): Cagetory =>
     categories.reduce((acc, category) => {
       const { title, items } = category;
       acc[title.toLowerCase()] = items;
@@ -23,7 +22,7 @@ export const selectCategoriesMap = createSelector(
     }, {} as Cagetory)
 );
 
-export const selectIsLoading = createSelector(
+export const selectCategoriesIsLoading = createSelector(
   [selectCategoryReducer],
   (categoriesSlice) => categoriesSlice.isLoading
 );

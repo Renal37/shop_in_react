@@ -6,19 +6,14 @@ export type cartState = {
    readonly cartItems: CartItem[];
    readonly isCartOpen: boolean;
 };
-export type state ={
-  state:any;
-  cart:any;
-  categories:any;
-  user:any;
-}
+
 
 const CART_INITIAL_STATE: cartState = {
   isCartOpen: false,
   cartItems: [],
 };
 
-export const cartReducer = (state = CART_INITIAL_STATE, action/* :AnyAction */  ={ }as cartAction): cartState => {
+export const cartReducer = (state = CART_INITIAL_STATE, action:AnyAction  ): cartState => {
   if (setIsCartOpen.match(action)) {
     return {
       ...state,
