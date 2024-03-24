@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import CategoriesPreview from "../categories-preview/categories-preview.routes"
 import Category from "../category/category.routes";
-import { fetchCategoriesStart } from '../../store/categories/category.action';
+import { fetchCategoriesStart } from '../../store/categories/category.action.ts';
 import './shop.style.scss'
 
 const Shop = () => {
